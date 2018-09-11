@@ -29,6 +29,8 @@ def _get_commands_from_module(module, inproject):
     d = {}
     for cmd in _iter_command_classes(module):
         if inproject or not cmd.requires_project:
+            print(“@@“)
+            print(cmd.__module__)
             cmdname = cmd.__module__.split('.')[-1]
             d[cmdname] = cmd()
     return d

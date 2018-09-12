@@ -37,6 +37,8 @@ def _get_commands_from_module(module, inproject):
 
 def _get_commands_from_entry_points(inproject, group='scrapy.commands'):
     cmds = {}
+    print(“@@“)
+    print(pkg_resources.iter_entry_points(group))
     for entry_point in pkg_resources.iter_entry_points(group):
         obj = entry_point.load()
         if inspect.isclass(obj):
